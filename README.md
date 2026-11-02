@@ -2,6 +2,8 @@
 
 An interactive storefront concept for a mechanical keyboard brand. The page pairs a dark editorial layout with product imagery, scroll motion, a keycap video, and an accessory selector.
 
+**[View the live demo](https://suhailchalil.github.io/klack/)**
+
 ![KLACK storefront preview](preview.webp)
 
 ## Explore
