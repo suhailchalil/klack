@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="theme-color" content="#050505" />
+<title>KLACK — Engineered For The Way You Type</title>
+<meta name="description" content="KLACK builds premium mechanical keyboards, keycaps and control surfaces. Milled aluminium, gasket isolation, basalt rest." />
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23050505'/%3E%3Cpath d='M9 6h4v20H9z' fill='%23fff'/%3E%3Cpath d='M23 6 13 16l4 4z' fill='%23fff'/%3E%3Cpath d='m17 20 4-4 5 10h-5z' fill='%237a3bff'/%3E%3C/svg%3E" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+<link rel="preload" as="image" href="assets/hero%20main.png" fetchpriority="high" />
+<link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body class="is-loading">
+<!-- Hard floor: the hero entrance is gated on .is-loading, so the scene must
+     never stay hidden if the module fails to load. -->
+<script>setTimeout(function(){document.body.classList.remove('is-loading');},2600);</script>
+
+<a class="skip" href="#perform">Skip to content</a>
+
+<!-- ══════════════════════════════════════════════════════════ NAVIGATION ══ -->
+<header class="nav" id="nav">
+  <a class="nav__mark" href="#top" aria-label="KLACK — home">
+    <img src="assets/logo-mark.png" width="216" height="192" alt="KLACK" />
+  </a>
+
+  <nav class="nav__links" aria-label="Primary">
+    <a href="#perform">Keyboards</a>
+    <a href="#keycaps">Keycaps</a>
+    <a href="#accessories">Accessories</a>
+    <a href="#about">About</a>
+  </nav>
+
+  <div class="nav__side">
+    <a class="nav__cart" href="#index">Cart <span>(0)</span></a>
+    <button class="dial" id="soundDial" type="button" aria-pressed="false" aria-label="Toggle keystroke sound">
+      <span class="dial__dot"></span>
+      <span class="dial__ring"></span>
+    </button>
+    <button class="nav__menu" id="menuBtn" type="button" aria-expanded="false" aria-controls="drawer">Menu</button>
+  </div>
+</header>
+
+<div class="drawer" id="drawer" hidden>
+  <a href="#perform">Keyboards</a>
+  <a href="#keycaps">Keycaps</a>
+  <a href="#accessories">Accessories</a>
+  <a href="#about">About</a>
+</div>
+
+<main id="top">
+
+<!-- ══════════════════════════════════════════════════════════════ HERO ══ -->
+<!--
+  Two planes, ordered by z-index and driven from one scroll value in js/main.js
+  through a `data-lag` factor: a larger lag means the plane trails the page and
+  therefore reads as further away. The product plane holds the supplied render
+  untouched — no cutout, no feathering, no overlay — so the type passes behind
+  the plate's own top edge rather than behind a keyed silhouette.
+  Nothing here animates a layout property: transform and opacity only.
+-->
+<section class="hero" id="hero">
+  <div class="hero__stage" id="heroStage">
+
+    <div class="plane plane--type" data-lag="0.24">
+      <h1 class="wordmark" aria-label="KLACK">
+        <span aria-hidden="true">K</span><span aria-hidden="true">L</span><span aria-hidden="true">A</span><span aria-hidden="true">C</span><span aria-hidden="true">K</span>
+      </h1>
+    </div>
+
+    <div class="plane plane--product" data-lag="-0.05">
+      <img
+        id="heroProduct"
+        src="assets/hero main.png"
+        width="1536" height="1024"
+        fetchpriority="high" decoding="async"
+        alt="The KLACK 75 mechanical keyboard, matte black with violet backlighting, resting on a cut basalt plinth" />
+    </div>
+
+  </div>
+
+  <div class="hero__ui" id="heroUi">
+    <p class="hero__label"><i aria-hidden="true"></i>Engineered for the way you type</p>
+
+    <a class="explore" href="#perform">
+      <span class="explore__text">Explore Klack</span>
+      <span class="explore__arrow" aria-hidden="true">
+        <svg viewBox="0 0 40 8" width="40" height="8"><path d="M0 4h35M31 1l4 3-4 3" fill="none" stroke="currentColor" stroke-width="1" /></svg>
+      </span>
+      <span class="explore__rule" aria-hidden="true"></span>
+    </a>
+
+    <div class="scroll-cue" aria-hidden="true"><i></i>Scroll</div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════ PERFORM ══ -->
+<!--
+  Second hero. The camera travels across the product, nothing else: the frame
+  clips a plate that is wider than it, and js/main.js slides that plate on the
+  same scroll-linked drift the keycap band uses. The type column never moves —
+  it carries no transform of its own, so it stays fixed and sharp while the
+  keyboard pans behind it. The callout lines are real strokes, traced from each
+  marker out toward the feature it names.
+-->
+<section class="sec sec--perform" id="perform">
+  <div class="perform__frame" data-drift="110">
+    <img src="assets/second-hero.webp" width="1724" height="912" loading="lazy" decoding="async"
+         alt="The KLACK 75 chassis in close detail — machined volume knob, side-lit legends and the anodised side rail" />
+  </div>
+
+  <div class="perform__body">
+    <h2 class="perform__title reveal">Built to<br />perform<i aria-hidden="true"></i></h2>
+    <span class="perform__rule reveal" aria-hidden="true" style="--d:120ms"></span>
+    <p class="perform__copy reveal" style="--d:180ms">
+      Purpose engineered from the inside out. Every component is selected,
+      positioned and tuned for one outcome &mdash; uncompromised performance.
+    </p>
+
+    <ul class="perform__specs">
+      <li class="pspec reveal">
+        <svg class="pspec__line" viewBox="0 0 240 140" fill="none" aria-hidden="true">
+          <path pathLength="1" d="M240 20H150L96 76H0" />
+        </svg>
+        <span class="pspec__dot" aria-hidden="true"></span>
+        <svg class="pspec__icon" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <rect x="2.5" y="8.5" width="27" height="17" rx="2" />
+          <path d="M7 13h2M12 13h2M17 13h2M22 13h3M7 18h2M12 18h2M17 18h2M22 18h3M10 22h12" />
+        </svg>
+        <span class="pspec__label">75% Layout</span>
+        <span class="pspec__sub">82 keys</span>
+      </li>
+
+      <li class="pspec reveal" style="--d:110ms">
+        <svg class="pspec__line" viewBox="0 0 240 140" fill="none" aria-hidden="true">
+          <path pathLength="1" d="M240 20H160L110 62H0" />
+        </svg>
+        <span class="pspec__dot" aria-hidden="true"></span>
+        <svg class="pspec__icon" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <path d="M16 3l11 6.2v13.6L16 29 5 22.8V9.2L16 3z" />
+          <path d="M5 9.2L16 15.5l11-6.3M16 15.5V29" />
+        </svg>
+        <span class="pspec__label">CNC Aluminium</span>
+        <span class="pspec__sub">Chassis</span>
+      </li>
+
+      <li class="pspec reveal" style="--d:220ms">
+        <svg class="pspec__line" viewBox="0 0 240 140" fill="none" aria-hidden="true">
+          <path pathLength="1" d="M240 20H150L104 48H0" />
+        </svg>
+        <span class="pspec__dot" aria-hidden="true"></span>
+        <svg class="pspec__icon" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <path d="M16 4l12 5.5L16 15 4 9.5 16 4z" />
+          <path d="M4 16l12 5.5L28 16M4 22.5L16 28l12-5.5" />
+        </svg>
+        <span class="pspec__label">Gasket Mount</span>
+        <span class="pspec__sub">Structure</span>
+      </li>
+
+      <li class="pspec reveal" style="--d:330ms">
+        <svg class="pspec__line" viewBox="0 0 240 140" fill="none" aria-hidden="true">
+          <path pathLength="1" d="M240 20H170L134 36H0" />
+        </svg>
+        <span class="pspec__dot" aria-hidden="true"></span>
+        <svg class="pspec__icon" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <path d="M2 16h4l3-9 4 20 4-25 4 20 3-6h6" />
+        </svg>
+        <span class="pspec__label">8,000 Hz</span>
+        <span class="pspec__sub">Polling rate</span>
+      </li>
+    </ul>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+<!-- ═══════════════════════════════════════════════════════════ KEYCAPS ══ -->
+<section class="sec sec--caps" id="keycaps">
+  <div class="caps__head">
+    <h2 class="display display--tight caps__title"><span>Light</span><span>takes shape</span></h2>
+    <p class="caps__lede">
+      Side-lit through 1.5 mm of double-shot PBT.<br />
+      The legend is the only place it gets out.
+    </p>
+  </div>
+
+  <!--
+    No .reveal classes anywhere in this section on purpose. That system parks
+    elements at opacity:0 until an IntersectionObserver fires, so anything that
+    stops the observer leaves the headline permanently invisible. The entrance
+    here is a plain CSS animation that runs on load and fills forwards, so the
+    finished state is visible no matter what — no JS, no scroll, no observer.
+  -->
+  <div class="caps__film">
+    <video
+      id="capsFilm"
+      width="1600" height="836"
+      autoplay muted loop playsinline
+      preload="metadata"
+      poster="assets/keycaps-wave.jpg"
+      aria-hidden="true">
+      <source src="assets/keycaps-wave.mp4" type="video/mp4" />
+    </video>
+  </div>
+
+  <dl class="spec spec--row">
+    <div><dt>Material</dt><dd>Double-shot PBT</dd></div>
+    <div><dt>Wall</dt><dd>1.5 mm</dd></div>
+    <div><dt>Diffusion</dt><dd>Side-lit</dd></div>
+    <div><dt>Finish</dt><dd>Shine-proof</dd></div>
+  </dl>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════ MATERIAL ══ -->
+<section class="sec sec--material" id="material">
+  <div class="material__bg" data-parallax="0.16" aria-hidden="true">
+    <img src="assets/detail-rock.webp" width="1490" height="270" loading="lazy" decoding="async" alt="" />
+  </div>
+  <p class="ghost" aria-hidden="true">Material</p>
+
+  <div class="material__body">
+    <p class="eyebrow reveal">05 &mdash; Material</p>
+    <h2 class="display display--tight reveal" style="--d:80ms"><span>Basalt</span><span>rest</span></h2>
+    <p class="lede reveal" style="--d:160ms">
+      Every unit is finished on a hand-cut basalt plinth. No two are identical.
+    </p>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════ ACCESSORIES ══ -->
+<!--
+  The rows are the control: pointer or keyboard focus previews an accessory,
+  a click locks it, and leaving the list falls back to whatever is locked.
+  Only one plate is ever on. Nothing here follows the cursor.
+-->
+<section class="sec sec--acc" id="accessories">
+  <div class="acc__body">
+    <h2 class="acc__title reveal"><span>Control</span><span>Surfaces</span></h2>
+    <p class="acc__copy reveal" style="--d:100ms">
+      Designed to complement.<br />
+      Built to integrate. Every detail, exactly where it should be.
+    </p>
+
+    <ul class="acc__list" id="accList">
+      <li class="acc-row is-active reveal" data-acc="knob" style="--d:160ms">
+        <button type="button">
+          <span class="acc-row__dot" aria-hidden="true"></span>
+          <span class="acc-row__name">Aluminium knob set</span>
+          <span class="acc-row__price">$39</span>
+          <svg class="acc-row__arrow" viewBox="0 0 30 8" width="30" height="8" aria-hidden="true">
+            <path d="M0 4h25M22 1l3 3-3 3" fill="none" stroke="currentColor" stroke-width="1" />
+          </svg>
+        </button>
+      </li>
+      <li class="acc-row reveal" data-acc="cable" style="--d:230ms">
+        <button type="button">
+          <span class="acc-row__dot" aria-hidden="true"></span>
+          <span class="acc-row__name">Coiled cable &mdash; violet</span>
+          <span class="acc-row__price">$59</span>
+          <svg class="acc-row__arrow" viewBox="0 0 30 8" width="30" height="8" aria-hidden="true">
+            <path d="M0 4h25M22 1l3 3-3 3" fill="none" stroke="currentColor" stroke-width="1" />
+          </svg>
+        </button>
+      </li>
+      <li class="acc-row reveal" data-acc="toolkit" style="--d:300ms">
+        <button type="button">
+          <span class="acc-row__dot" aria-hidden="true"></span>
+          <span class="acc-row__name">Switch toolkit</span>
+          <span class="acc-row__price">$29</span>
+          <svg class="acc-row__arrow" viewBox="0 0 30 8" width="30" height="8" aria-hidden="true">
+            <path d="M0 4h25M22 1l3 3-3 3" fill="none" stroke="currentColor" stroke-width="1" />
+          </svg>
+        </button>
+      </li>
+      <li class="acc-row reveal" data-acc="rest" style="--d:370ms">
+        <button type="button">
+          <span class="acc-row__dot" aria-hidden="true"></span>
+          <span class="acc-row__name">Basalt rest</span>
+          <span class="acc-row__price">$89</span>
+          <svg class="acc-row__arrow" viewBox="0 0 30 8" width="30" height="8" aria-hidden="true">
+            <path d="M0 4h25M22 1l3 3-3 3" fill="none" stroke="currentColor" stroke-width="1" />
+          </svg>
+        </button>
+      </li>
+    </ul>
+  </div>
+
+  <div class="acc__stage">
+    <img class="acc__shot is-on" data-acc="knob" src="assets/acc-knob.webp" width="1536" height="1024"
+         loading="lazy" decoding="async" alt="The KLACK aluminium knob set — knurled cap, collar, washers and grub screw" />
+    <img class="acc__shot" data-acc="cable" src="assets/acc-cable.webp" width="1536" height="1024"
+         loading="lazy" decoding="async" alt="The violet coiled cable with its aviator connector and USB-C head" />
+    <img class="acc__shot" data-acc="toolkit" src="assets/acc-toolkit.webp" width="1536" height="1024"
+         loading="lazy" decoding="async" alt="The KLACK switch toolkit — pullers, tweezers, brush and a tray of spare switches" />
+    <img class="acc__shot" data-acc="rest" src="assets/acc-rest.webp" width="1536" height="1024"
+         loading="lazy" decoding="async" alt="The hand-cut basalt wrist rest on its machined base" />
+  </div>
+</section>
+
+
+<!-- ═════════════════════════════════════════════════════════ STATEMENT ══ -->
+<section class="sec sec--say" id="about">
+  <p class="say reveal">Engineered for the way<br />you type<i aria-hidden="true"></i></p>
+  <p class="say__foot reveal" style="--d:200ms">Klack &mdash; est. 2026</p>
+</section>
+
+</main>
+
+
+<!-- ════════════════════════════════════════════════════════════ FOOTER ══ -->
+<footer class="foot" id="index">
+  <div class="foot__top">
+    <p class="eyebrow">Join the index</p>
+    <form class="join" id="joinForm" novalidate>
+      <label class="skip" for="joinEmail">Email address</label>
+      <input id="joinEmail" type="email" name="email" required autocomplete="email" placeholder="your@email.com" />
+      <button type="submit">
+        Submit
+        <svg viewBox="0 0 24 8" width="24" height="8" aria-hidden="true"><path d="M0 4h19M16 1l3 3-3 3" fill="none" stroke="currentColor" stroke-width="1" /></svg>
+      </button>
+    </form>
+    <p class="join__status" id="joinStatus" role="status"></p>
+  </div>
+
+  <div class="foot__cols">
+    <div><h4>Product</h4><a href="#perform">Keyboards</a><a href="#keycaps">Keycaps</a><a href="#accessories">Accessories</a></div>
+    <div><h4>Support</h4><a href="#index">Shipping</a><a href="#index">Returns</a><a href="#index">Warranty</a></div>
+    <div><h4>Studio</h4><a href="#about">About</a><a href="#index">Press</a><a href="#index">Contact</a></div>
+  </div>
+
+  <p class="foot__mark" aria-hidden="true">KLACK</p>
+  <p class="foot__legal"><span>&copy; 2026 Klack Instruments</span><span>All rights reserved</span></p>
+</footer>
+
+<script type="module" src="js/main.js"></script>
+</body>
+</html>
