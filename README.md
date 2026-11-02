@@ -2,7 +2,7 @@
 
 An interactive storefront concept for a mechanical keyboard brand. The page pairs a dark editorial layout with product imagery, scroll motion, a keycap video, and an accessory selector.
 
-![KLACK keyboard hero](assets/hero%20main.png)
+![KLACK storefront preview](preview.webp)
 
 ## Explore
 
